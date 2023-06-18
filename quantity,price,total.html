@@ -1,0 +1,12 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+
+    <body>
+        <div ng-app="" ng-init="quantity=9;price=125">
+            <h2>Cost Calculator</h2>
+            <p>Quantity: <input type="number" ng-model="quantity"></p>
+            <p>Price: <input type="number" ng-model="price"></p>
+            <p>Total cost : {{quantity*price}}</p>
+        </div>
+    </body>
+</html>

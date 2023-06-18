@@ -1,0 +1,18 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+
+    <body>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <p>First Name: <input type="text" ng-model="firstName"></p>
+            <p>Last Name: <input type="text" ng-model="lastName"></p>
+            <h1>{{firstName+" "+lastName}}</h1>
+        </div>
+        <script>
+            var app=angular.module("myApp",[]);
+            app.controller("myCtrl",function($scope){
+                $scope.firstName='Tanushree';
+                $scope.lastName='Mahato';
+            })
+        </script>
+    </body>
+</html>

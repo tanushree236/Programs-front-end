@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <font color="blue" size="6" face="arial">Student Registration Form REVA
+            UNIVERSITY</font><br /><br /><br />
+        <form onsubmit='return formValidator()' action="right.html">
+            <fieldset>
+                First Name(Minimum 6 characters)<font color="red">* </font>
+                <input type='text' id='firstname' /><br /><br />
+                Last Name<font color="red">
+                    <font color="red">* </font>
+                </font> &nbsp;&nbsp;&nbsp;
+                <input type='text' id='lastname' /><br /><br />
+                Email Address<font color="red">* </font> &nbsp;&nbsp;&nbsp;
+                <input type='text' id='email' /><br />
+                <font color="red">(one e-mail id only):</font> &nbsp;&nbsp;&nbsp;
+                <font color="redblue">e.g. smith@gmail.com</font><br /><br />
+                Password(minimum 6 characters)<font color="red">* </font> &nbsp;&nbsp;&nbsp;
+                <input type='password' id='pass'><br /><br />
+                Address<font color="red">* </font> &nbsp;&nbsp;&nbsp;
+                <textarea rows="2" cols="20" id='addr' /></textarea> <br /> <br />
+                Mobile No<font color="red">* </font> &nbsp;&nbsp;&nbsp;
+                <input type='text' id='mobileno' /><br /><br /><br />
+                Gender: <input type='radio' name="gender">male
+                <input type='radio' name="gender">female<br /><br />
+                <input type='Submit' value='submit' />
+                <input type='Reset' value='reset' />
+                <fielset>
+    </center>
+    </form>
+
+    <script>
+        function formValidator() {
+            var firstname = document.getElementById('firstname');
+            var lastname = document.getElementById("lastname");
+            var email = document.getElementById('email');
+            var pass = document.getElementById('pass');
+            var addr = document.getElementById('addr');
+            var mobileno = document.getElementById('mobileno');
+
+            if(notEmpty(firstname,"first name can be empty")){
+                if(isAlphabet(firstname,"Please enter only letters")){
+                    if(lengthRestriction(firstname,6)){
+                        if(isAlphabet(lastname,"Only aplhabets")){
+                            if(emailValidator(email,"enter valid email")){
+                                if(lengthRestriction(pass,6)){
+                                    if(isAlphanumeric(pass,"pls enter number and letters only")){
+                                        if(notEmpty(addr,"pls enter adress")){
+                                            return true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        function notEmpty(elem,helperMsg){
+            if(elem.value.length==0){
+                alert(helperMsg);
+                elem.focus();
+                return false;
+            }
+            return true;
+        }
+
+        function isAlphabet(elem,helperMsg){
+            var alphaExp=/^[a-zA-Z]+$/;
+            if(elem.value.match(alphaExp)){
+                return true;
+            }
+            else{
+                alert(helperMsg);
+                elem.focus();
+                return false;
+            }
+        }
+
+        function isAlphanumeric(elem,helperMsg){
+            var alphaExp=/^[a-zA-z0-9]+$/;
+            if(elem.value.match(alphaExp)){
+                return true;
+            }
+            else{
+                alert(helperMsg);
+                elem.focus();
+                return false;
+            }
+        }
+
+        function lengthRestriction(elem,min){
+            var uip=elem.value;
+            if(uip.length>=min){
+                return true;
+            }
+            else{
+                alert("Pls enter min "+min+" characters");
+                elem.focus();
+                return false;
+            }
+        }
+
+        
+
+    </script>
+</body>
+
+</html>
